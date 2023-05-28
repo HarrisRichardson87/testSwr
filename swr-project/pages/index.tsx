@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   
   // get bitcoin price
-  const { data, error, mutate } = useSWR('query { bitcoin { getBitcoinPrice } }', (query) => fetch('http://localhost:3000/api/hello', {
+  const { data, error, mutate } = useSWR('query { bitcoin { getBitcoinPrice } }', (query:string) => fetch('http://localhost:3000/api/hello', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">Next.js! Test fork</a>
         </h1>
         { data.name}
         <button onClick={handleSave}>Change Name</button>
